@@ -1,64 +1,17 @@
-﻿using System;
-
-class Calculator
+﻿// See https://aka.ms/new-console-template for more information
+using System;
+class Program
 {
     static void Main()
     {
-        Console.WriteLine("Kalkulator Sederhana");
-        Console.WriteLine("====================");
+Console.Write("Masukkan nilai alas segitiga: ");
+double alas = Convert.ToDouble(Console.ReadLine());
 
-        // Minta pengguna memasukkan angka pertama
-        Console.Write("Masukkan angka pertama: ");
-        double angka1;
-        while (!double.TryParse(Console.ReadLine(), out angka1))
-        {
-            Console.Write("Input tidak valid. Masukkan angka pertama: ");
-        }
+Console.Write("Masukkan nilai tinggi segitiga: ");
+double tinggi = Convert.ToDouble(Console.ReadLine());
 
-        // Minta pengguna memasukkan operator
-        Console.Write("Masukkan operator (+, -, *, /): ");
-        char operasi = Console.ReadKey().KeyChar;
-        Console.WriteLine();
+double luas = 0.5*alas*tinggi;
 
-        // Minta pengguna memasukkan angka kedua
-        Console.Write("Masukkan angka kedua: ");
-        double angka2;
-        while (!double.TryParse(Console.ReadLine(), out angka2))
-        {
-            Console.Write("Input tidak valid. Masukkan angka kedua: ");
-        }
-
-        double hasil = 0;
-
-        // Periksa operasi yang dipilih dan lakukan perhitungan
-        switch (operasi)
-        {
-            case '+':
-                hasil = angka1 + angka2;
-                break;
-            case '-':
-                hasil = angka1 - angka2;
-                break;
-            case '*':
-                hasil = angka1 * angka2;
-                break;
-            case '/':
-                if (angka2 != 0)
-                {
-                    hasil = angka1 / angka2;
-                }
-                else
-                {
-                    Console.WriteLine("Kesalahan: Pembagian dengan nol tidak diperbolehkan.");
-                    return;
-                }
-                break;
-            default:
-                Console.WriteLine("Operator tidak valid.");
-                return;
-        }
-
-        // Tampilkan hasil
-        Console.WriteLine("Hasil: " + hasil);
+Console.WriteLine("Luas segitiga adalah:"+luas);
     }
 }
